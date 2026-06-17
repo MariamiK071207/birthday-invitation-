@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mariami's Sweet 14 🎀</title>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:linear-gradient(to bottom,#ffd6e7,#fff0f6);
+overflow-x:hidden;
+text-align:center;
+color:#ff4f87;
+}
+
+.container{
+width:90%;
+max-width:500px;
+margin:auto;
+padding:20px;
+}
+
+h1{
+font-size:40px;
+margin-top:20px;
+}
+
+.subtitle{
+font-size:18px;
+margin-top:10px;
+margin-bottom:20px;
+}
+
+.photo{
+width:250px;
+height:250px;
+border-radius:50%;
+object-fit:cover;
+border:6px solid white;
+box-shadow:0 0 20px pink;
+animation:float 3s infinite ease-in-out;
+}
+
+@keyframes float{
+50%{
+transform:translateY(-10px);
+}
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:25px;
+box-shadow:0 0 20px rgba(255,105,180,.3);
+margin-top:25px;
+}
+
+.info{
+font-size:18px;
+margin:12px 0;
+}
+
+input,textarea{
+width:100%;
+padding:15px;
+margin-top:12px;
+border:none;
+border-radius:20px;
+background:#ffe5ef;
+font-size:16px;
+}
+
+button{
+width:100%;
+padding:15px;
+margin-top:20px;
+border:none;
+border-radius:20px;
+background:#ff6fa5;
+color:white;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+}
+
+button:hover{
+background:#ff4f87;
+}
+
+.hearts{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+pointer-events:none;
+overflow:hidden;
+}
+
+.heart{
+position:absolute;
+font-size:25px;
+animation:fall linear infinite;
+}
+
+@keyframes fall{
+0%{
+transform:translateY(-100px);
+opacity:1;
+}
+100%{
+transform:translateY(100vh);
+opacity:0;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="hearts">
+
+<div class="heart" style="left:10%;animation-duration:8s;">💖</div>
+
+<div class="heart" style="left:30%;animation-duration:10s;">💕</div>
+
+<div class="heart" style="left:50%;animation-duration:7s;">🎀</div>
+
+<div class="heart" style="left:70%;animation-duration:9s;">💗</div>
+
+<div class="heart" style="left:90%;animation-duration:8s;">💞</div>
+
+</div>
+
+<div class="container">
+
+<h1>🎀 Mariami's Sweet 14 🎀</h1>
+
+<p class="subtitle">
+You're invited to celebrate with me 💖
+</p><div class="slider">
+
+<img class="photo slide"
+src="PHOTO1">
+
+<img class="photo slide"
+src="PHOTO2">
+
+<img class="photo slide"
+src="PHOTO3">
+
+</div>
+
+<div class="card">
+
+<div class="info">
+📅 07.07.2026 • 20:00
+</div>
+
+<div class="info">
+📍 იბერია პალასი
+</div>
+
+<div class="info" id="days">
+🎂 Loading...
+</div>
+
+<input type="text"
+placeholder="👤 Name & Surname">
+
+<input type="tel"
+placeholder="📞 Phone Number">
+
+<input type="number"
+placeholder="👥 Number of Guests">
+
+<textarea
+placeholder="💬 Comment"></textarea>
+
+<button onclick="showMessage()">
+I'll Be There 🎀
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+function showMessage(){
+alert("💖 Thank you for confirming! Can't wait to celebrate with you! 🎂✨");
+}
+
+let currentSlide = 0;
+
+const slides = document.querySelectorAll(".slide");
+
+function showSlides(){
+
+slides.forEach(slide=>{
+slide.style.display="none";
+});
+
+currentSlide++;
+
+if(currentSlide>slides.length){
+currentSlide=1;
+}
+
+slides[currentSlide-1].style.display="block";
+
+setTimeout(showSlides,3000);
+
+}
+
+showSlides();
+
+function countdown(){
+
+const birthday =
+new Date("July 7, 2026 20:00:00").getTime();
+
+const now =
+new Date().getTime();
+
+const distance =
+birthday-now;
+
+const days =
+Math.floor(distance/(1000*60*60*24));
+
+document.getElementById("days").innerHTML =
+"🎂 "+days+" days left";
+
+}
+
+setInterval(countdown,1000);
+
+</script>
+
+</body>
+</html>
