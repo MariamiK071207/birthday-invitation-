@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>დაბადების დღის მოწვევა 🎉</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #ff4d6d, #ffb3c1, #ffd6a5);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* confetti */
+.confetti {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: white;
+  top: -10px;
+  animation: fall linear infinite;
+  opacity: 0.7;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(360deg);
+  }
+}
+
+.card {
+  position: relative;
+  background: white;
+  padding: 25px;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 420px;
+  text-align: center;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+  animation: pop 0.8s ease;
+}
+
+@keyframes pop {
+  from { transform: scale(0.7); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+h1 {
+  color: #ff4d6d;
+  margin-bottom: 10px;
+}
+
+p {
+  color: #333;
+}
+
+input, select, textarea {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+}
+
+button {
+  margin-top: 15px;
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: #ff4d6d;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #e63e5c;
+  transform: scale(1.05);
+}
+
+.emoji {
+  font-size: 30px;
+  animation: bounce 1.2s infinite;
+}
+
+@keyframes bounce {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+</style>
+</head>
+
+<body>
+
+<!-- CONFETTI -->
+<script>
+for (let i = 0; i < 40; i++) {
+  let c = document.createElement("div");
+  c.classList.add("confetti");
+  document.body.appendChild(c);
+
+  c.style.left = Math.random() * 100 + "vw";
+  c.style.animationDuration = (2 + Math.random() * 3) + "s";
+  c.style.backgroundColor = ["#fff", "#ff4d6d", "#ffd166", "#06d6a0"][Math.floor(Math.random()*4)];
+}
+</script>
+
+<div class="card">
+  <div class="emoji">🎉</div>
+  <h1>დაბადების დღე!</h1>
+  <p>მოგესალმებით ჩემს birthday party-ზე ❤️</p>
+
+  <p><b>📍 მისამართი:</b> (ჩასვი აქ)</p>
+  <p><b>📅 თარიღი:</b> (ჩასვი აქ)</p>
+
+  <form action="https://formspree.io/f/mzdqqzkb" method="POST">
+
+    <input type="text" name="name" placeholder="შენი სახელი" required>
+
+    <select name="attendance" required>
+      <option value="">მოხვალ?</option>
+      <option value="yes">კი მოვალ 🎉</option>
+      <option value="no">ვერ მოვალ 😢</option>
+    </select>
+
+    <textarea name="message" placeholder="შეტყობინება (არასავალდებულო)"></textarea>
+
+    <button type="submit">დარეგისტრირდი 🎊</button>
+
+  </form>
+</div>
+
+</body>
+</html>
